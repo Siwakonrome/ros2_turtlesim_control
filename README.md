@@ -29,7 +29,7 @@ class Controller(Node):
         self.pose_subscription = self.create_subscription(Pose,'/turtle1/pose',self.pose_callback,10)
         ## Period to update cmd vel.
         self.timer_period = 0.1
-        ## Update turtle pose loop.
+        ## Update turtle cmd vel loop.
         self.timer = self.create_timer(self.timer_period,self.timer_callback)
         ## Init Pose msg to get data from /turtle1/pose.
         self.pose = Pose()
