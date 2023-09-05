@@ -147,3 +147,203 @@ def generate_launch_description():
   ```sh
   ros2 launch turtlessim_plus_bring_up_ros2 turtlessim_plus_bring_up_ros2_launch.py
   ```
+
+  - Conn
+  ```sh
+  Given the robot's current pose as (x_r, y_r, theta_r) (where (x_r, y_r) is the position and theta_r is the orientation) and a target waypoint fp as (x_wp, y_wp), the key equations used in the code are as follows:
+
+Compute the vector from the robot's current position to the waypoint:
+
+�
+�
+=
+[
+�
+�
+�
+−
+�
+�
+�
+�
+�
+−
+�
+�
+]
+dp=[ 
+x 
+wp
+​
+ −x 
+r
+​
+ 
+y 
+wp
+​
+ −y 
+r
+​
+ 
+​
+ ]
+
+Calculate the angle error (
+�
+e) between the desired heading and the robot's current orientation:
+
+�
+=
+arctan
+⁡
+2
+(
+�
+�
+�
+−
+�
+�
+,
+�
+�
+�
+−
+�
+�
+)
+−
+�
+�
+e=arctan2(y 
+wp
+​
+ −y 
+r
+​
+ ,x 
+wp
+​
+ −x 
+r
+​
+ )−θ 
+r
+​
+ 
+
+Calculate the angular velocity (
+�
+w) based on the angle error using a proportional control law:
+
+�
+=
+�
+⋅
+arctan
+⁡
+2
+(
+sin
+⁡
+(
+�
+)
+,
+cos
+⁡
+(
+�
+)
+)
+w=K⋅arctan2(sin(e),cos(e))
+
+Check if the distance between the robot's current position and the waypoint (
+�
+wp
+d 
+wp
+​
+ ) is greater than a threshold (
+scan_offset
+scan_offset):
+
+�
+wp
+=
+(
+�
+�
+�
+−
+�
+�
+)
+2
++
+(
+�
+�
+�
+−
+�
+�
+)
+2
+d 
+wp
+​
+ = 
+(x 
+wp
+​
+ −x 
+r
+​
+ ) 
+2
+ +(y 
+wp
+​
+ −y 
+r
+​
+ ) 
+2
+ 
+​
+ 
+
+Determine the linear velocity (
+�
+v) based on whether the robot needs to move or stop:
+
+�
+=
+{
+1.0
+,
+if 
+�
+wp
+>
+scan_offset
+0.0
+,
+otherwise
+v={ 
+1.0,
+0.0,
+​
+  
+if d 
+wp
+​
+ >scan_offset
+otherwise
+​
+ 
+
+
+  ```
