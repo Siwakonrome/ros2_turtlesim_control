@@ -143,3 +143,7 @@ def generate_launch_description():
         )
     ])
 ```
+- Run launch file
+  ```sh
+  ros2 launch turtlessim_plus_bring_up_ros2 turtlessim_plus_bring_up_ros2_launch.py
+  ```
