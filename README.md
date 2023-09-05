@@ -148,3 +148,4 @@ def generate_launch_description():
   ros2 launch turtlessim_plus_bring_up_ros2 turtlessim_plus_bring_up_ros2_launch.py
   ```
 - Control algorithm
+![Screenshot](control_algorithm.png)
