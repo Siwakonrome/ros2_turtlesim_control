@@ -74,24 +74,9 @@ class Controller(Node):
         self.pose = msg
 
     def control(self):
-        msg = Twist()
-        self.current_position = np.array([self.pose.x,self.pose.y])
-        try:
-            fp = self.way_point[0]
-        except:
-            fp = self.current_position
-        dp =  fp - self.current_position
-        e = np.arctan2(dp[1],dp[0])-self.pose.theta
-        K = 3.0
-        w = K*np.arctan2(np.sin(e),np.cos(e))
-        if np.linalg.norm(dp)>self.scan_offset:
-            v = 1.0
-        else:
-            v = 0.0
-            w = 0.0
-            self.delete_way_point_data()
-        msg.linear.x = v
-        msg.angular.z = w
+        '''
+        Create controller here!!!
+        '''
         return msg
     
     def goal_callback(self,msg : Point):
