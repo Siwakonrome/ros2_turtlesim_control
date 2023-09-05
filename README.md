@@ -150,4 +150,3 @@ def generate_launch_description():
 - Control algorithm
 ![Screenshot](control_algorithm.png)
 - Video
-![Screenshot](home_work.gif)
