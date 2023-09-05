@@ -147,7 +147,4 @@ def generate_launch_description():
   ```sh
   ros2 launch turtlessim_plus_bring_up_ros2 turtlessim_plus_bring_up_ros2_launch.py
   ```
-
-  - Conn
-  ```sh
-  ```
+- Control algorithm
