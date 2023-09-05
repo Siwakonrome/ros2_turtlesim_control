@@ -1,4 +1,0 @@
-camera_tcp_communication_node:
-  ros__parameters:
-    gain: 10.0
-    speed: 1.0
